@@ -8,6 +8,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <style>
         body {
             background-color: #18191A;
@@ -73,7 +75,23 @@
             box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
         }
 
+        select.form-control {
+            background-color: #212529;
+            /* لون الخلفية ليكون متناسقًا مع الحقول الأخرى */
+            color: white;
+            /* لون النص */
+            border: 1px soشlid #ced4da;
+            /* حدود مثل الحقول */
+            padding: 8px;
+            border-radius: 5px;
+            /* زوايا ناعمة مثل الحقول الأخرى */
+            font-size: 16px;
+        }
 
+        select.form-control:focus {
+            border-color: #80bdff;
+            outline: none;
+        }
     </style>
 </head>
 
@@ -83,31 +101,26 @@
     <div class="sidebar">
         <h4 class="text-center mb-4">اسم الشركة</h4>
         <a href="#" class="active"><i class="fa-solid fa-chart-line"></i> لوحة القيادة</a>
-        <a href="#"><i class="fa-solid fa-box"></i> الطلبات</a>
-        <a href="#"><i class="fa-solid fa-cart-shopping"></i> المنتجات</a>
-        <a href="#"><i class="fa-solid fa-users"></i> الزبائن</a>
-        <a href="#"><i class="fa-solid fa-file-alt"></i> التقارير</a>
+        <a href="{{ route('categories.index') }}"><i class="fa-solid fa-box"></i> الاصناف</a>
+        <a href="{{ route('products.index') }}"><i class="fa-solid fa-cart-shopping"></i> المنتجات</a>
         <a href="#"><i class="fa-solid fa-cog"></i> الإعدادات</a>
-        <h6 class="mt-4">التقارير المحفوظة</h6>
-        <a href="#"><i class="fa-solid fa-calendar"></i> الشهر الحالي</a>
-        <a href="#"><i class="fa-solid fa-chart-pie"></i> الربع الأخير</a>
-        <a href="#"><i class="fa-solid fa-chart-bar"></i> التفاعل الاجتماعي</a>
-        <a href="#"><i class="fa-solid fa-sack-dollar"></i> مبيعات نهاية العام</a>
         <h6 class="mt-4">إعدادات</h6>
         <a href="#"><i class="fa-solid fa-sign-out-alt"></i> خروج</a>
+
+
     </div>
 
     <!-- الشريط العلوي -->
     <nav class="navbar">
         <div class="container-fluid">
-            <span class="navbar-brand text-white">لوحة القيادة</span>
+            <span class="navbar-brand text-white">&nbsp;</span>
         </div>
     </nav>
 
     <!-- المحتوى الرئيسي -->
     <div class="content">
         <div class="mt-5 pt-3">
-            <h2>لوحة القيادة</h2>
+
 
             <div class="chart-container mt-5">
                 @yield('content')
